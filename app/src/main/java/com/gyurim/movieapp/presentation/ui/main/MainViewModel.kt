@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.gyurim.movieapp.presentation.data.remote.model.Movie
-import com.gyurim.movieapp.presentation.domain.repository.MovieRepository
+import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

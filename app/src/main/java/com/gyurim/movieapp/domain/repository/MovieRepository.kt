@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.presentation.domain.repository
+package com.gyurim.movieapp.domain.repository
 
 import androidx.paging.PagingData
 import com.gyurim.movieapp.presentation.data.remote.model.Movie

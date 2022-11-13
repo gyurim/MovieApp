@@ -1,7 +1,7 @@
-package com.gyurim.movieapp.presentation.di
+package com.gyurim.movieapp.di
 
 import com.gyurim.movieapp.presentation.data.remote.repository.MovieRepositoryImpl
-import com.gyurim.movieapp.presentation.domain.repository.MovieRepository
+import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.presentation.di
+package com.gyurim.movieapp.di
 
 import com.gyurim.movieapp.presentation.data.remote.datasource.MovieDataSource
 import com.gyurim.movieapp.presentation.data.remote.datasource.MovieDataSourceImpl
