@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gyurim.movieapp.databinding.ItemMovieBinding
-import com.gyurim.movieapp.presentation.data.remote.model.Movie
+import com.gyurim.movieapp.data.remote.model.Movie
 
 class MainPagingAdapter(
     private val itemClick: (Movie) -> Unit

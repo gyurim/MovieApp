@@ -1,8 +1,7 @@
-package com.gyurim.movieapp.presentation.data.remote
+package com.gyurim.movieapp.data.remote
 
-import com.gyurim.movieapp.presentation.data.remote.model.ResultSearchMovieList
+import com.gyurim.movieapp.data.remote.model.ResultSearchMovieList
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface NaverMovieApi {

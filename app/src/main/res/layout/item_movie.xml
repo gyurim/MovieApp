@@ -5,7 +5,7 @@
     <data>
         <variable
             name="movie"
-            type="com.gyurim.movieapp.presentation.data.remote.model.Movie" />
+            type="com.gyurim.movieapp.data.remote.model.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             android:id="@+id/movie_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="영화 제목"
+            android:text="@{movie.title}"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/movie_director"
@@ -37,7 +37,7 @@
             android:id="@+id/movie_director"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="감독: "
+            android:text= "@{@string/director_text_view}"
             android:textSize="18dp"
             app:layout_constraintBottom_toTopOf="@+id/movie_actors"
             app:layout_constraintStart_toEndOf="@id/movie_poster_image"
@@ -48,7 +48,7 @@
             android:id="@+id/movie_actors"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="출연: "
+            android:text= "@{@string/actor_text_view}"
             android:textSize="18dp"
             app:layout_constraintBottom_toTopOf="@+id/movie_user_rating"
             app:layout_constraintStart_toEndOf="@id/movie_poster_image"
@@ -59,7 +59,7 @@
             android:id="@+id/movie_user_rating"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="평점: "
+            android:text= "@{@string/user_rating_text_view}"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/movie_poster_image"

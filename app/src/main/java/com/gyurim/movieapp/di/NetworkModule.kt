@@ -1,6 +1,6 @@
 package com.gyurim.movieapp.di
 
-import com.gyurim.movieapp.presentation.data.remote.NaverMovieApi
+import com.gyurim.movieapp.data.remote.NaverMovieApi
 import com.gyurim.movieapp.util.UserInfo
 import dagger.Module
 import dagger.Provides
@@ -8,10 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -60,8 +58,8 @@ object NetworkModule {
     fun provideHeaderInterceptor(): Interceptor {
         return Interceptor {
             val newRequest = it.request().newBuilder()
-                .addHeader("naver_client_id", UserInfo.NAVER_CLIENT_ID)
-                .addHeader("naver_client_secret", UserInfo.NAVER_CLIENT_SECRET)
+                .addHeader("X-Naver-Client-Id", UserInfo.NAVER_CLIENT_ID)
+                .addHeader("X-Naver-Client-Secret", UserInfo.NAVER_CLIENT_SECRET)
                 .build()
             it.proceed(newRequest)
         }

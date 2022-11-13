@@ -1,7 +1,7 @@
-package com.gyurim.movieapp.presentation.data.remote.datasource
+package com.gyurim.movieapp.data.remote.datasource
 
-import com.gyurim.movieapp.presentation.data.remote.NaverMovieApi
-import com.gyurim.movieapp.presentation.data.remote.model.ResultSearchMovieList
+import com.gyurim.movieapp.data.remote.NaverMovieApi
+import com.gyurim.movieapp.data.remote.model.ResultSearchMovieList
 import javax.inject.Inject
 
 class MovieDataSourceImpl @Inject constructor(

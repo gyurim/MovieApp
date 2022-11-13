@@ -1,6 +1,6 @@
 package com.gyurim.movieapp.di
 
-import com.gyurim.movieapp.presentation.data.remote.repository.MovieRepositoryImpl
+import com.gyurim.movieapp.data.remote.repository.MovieRepositoryImpl
 import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun provideRepository(
+    abstract fun bindMovieRepository(
         movieRepository: MovieRepositoryImpl
     ): MovieRepository
 }

@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.presentation.data.remote.model
+package com.gyurim.movieapp.data.remote.model
 
 import kotlinx.serialization.Serializable
 
