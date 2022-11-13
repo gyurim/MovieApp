@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gyurim.movieapp.databinding.ItemMovieBinding
-import com.gyurim.movieapp.presentation.domain.model.Movie
+import com.gyurim.movieapp.presentation.data.remote.model.Movie
 
 class MainPagingAdapter(
     private val itemClick: (Movie) -> Unit
@@ -39,7 +39,7 @@ class MainPagingAdapter(
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<Movie>() {
             override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.title == newItem.title
             }
 
             override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {

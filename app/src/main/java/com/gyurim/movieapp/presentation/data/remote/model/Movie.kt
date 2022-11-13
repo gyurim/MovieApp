@@ -9,5 +9,5 @@ data class Movie(
     val image: String,
     val director: String,
     val actor: String,
-    val userRating: Int
+    val userRating: Double
 )
