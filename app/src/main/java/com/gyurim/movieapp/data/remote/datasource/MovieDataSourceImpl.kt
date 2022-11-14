@@ -8,6 +8,6 @@ class MovieDataSourceImpl @Inject constructor(
     private val naverMovieApi: NaverMovieApi
 ) : MovieDataSource {
     override suspend fun searchMovieList(query: String): ResultSearchMovieList {
-        return naverMovieApi.searchMovieList(query)
+        return naverMovieApi.searchMovieList(query, 100)
     }
 }

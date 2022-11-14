@@ -21,12 +21,11 @@ class MainViewModel @Inject constructor(
     private val _data : MutableStateFlow<PagingData<Movie>> = MutableStateFlow(PagingData.empty())
     val data : StateFlow<PagingData<Movie>> = _data.asStateFlow()
 
-    init {
+    fun searchMovieList(query : String) {
         viewModelScope.launch {
-            repository.searchMovieList("국가").cachedIn(viewModelScope).collectLatest {
+            repository.searchMovieList(query).cachedIn(viewModelScope).collectLatest {
                 _data.value = it
             }
         }
-
     }
 }

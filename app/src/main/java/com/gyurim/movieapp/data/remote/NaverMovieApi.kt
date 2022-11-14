@@ -7,6 +7,7 @@ import retrofit2.http.Query
 interface NaverMovieApi {
     @GET("search/movie.json")
     suspend fun searchMovieList(
-        @Query("query") query: String
+        @Query("query") query: String,
+        @Query("display") display: Int
     ): ResultSearchMovieList
 }

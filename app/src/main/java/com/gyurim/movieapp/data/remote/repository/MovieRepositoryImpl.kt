@@ -1,10 +1,12 @@
 package com.gyurim.movieapp.data.remote.repository
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.gyurim.movieapp.data.paging.MovieSearchPagingSource
 import com.gyurim.movieapp.data.remote.NaverMovieApi
+import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
 import com.gyurim.movieapp.domain.repository.MovieRepository
 import com.gyurim.movieapp.data.remote.model.Movie
 import com.gyurim.movieapp.util.Constant
@@ -12,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(
-    private val naverMovieApi: NaverMovieApi
+    private val movieDataSource: MovieDataSource
 ) : MovieRepository {
 
     override suspend fun searchMovieList(query: String): Flow<PagingData<Movie>> {
@@ -22,7 +24,7 @@ class MovieRepositoryImpl @Inject constructor(
                 enablePlaceholders = false
             ),
             initialKey = Constant.DEFAULT_PAGE_KEY,
-            pagingSourceFactory = { MovieSearchPagingSource(naverMovieApi, query) }
+            pagingSourceFactory = { MovieSearchPagingSource(movieDataSource, query) }
         ).flow
     }
 }
