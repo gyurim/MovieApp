@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="naver_movie_search">네이버 영화 검색</string>
+    <string name="search_view_hint">검색하고 싶은 영화를 입력해주세요</string>
 </resources>
