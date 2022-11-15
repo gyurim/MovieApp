@@ -1,8 +1,9 @@
 package com.gyurim.movieapp.data.remote.model
 
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-@Serializable
+@Parcelize
 data class Movie(
     val title : String,
     val link: String,
@@ -10,4 +11,4 @@ data class Movie(
     val director: String,
     val actor: String,
     val userRating: Double
-)
+): Parcelable
