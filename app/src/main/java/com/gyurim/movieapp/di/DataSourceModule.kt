@@ -1,5 +1,7 @@
 package com.gyurim.movieapp.di
 
+import com.gyurim.movieapp.data.local.datasource.MovieLocalDataSource
+import com.gyurim.movieapp.data.local.datasource.MovieLocalDataSourceImpl
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSourceImpl
 import dagger.Binds
@@ -16,4 +18,10 @@ abstract class DataSourceModule {
     abstract fun bindsMovieDataSource(
         movieDataSourceImpl: MovieDataSourceImpl
     ): MovieDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindsMovieLocalDataSource(
+        movieLocalDataSourceImpl: MovieLocalDataSourceImpl
+    ): MovieLocalDataSource
 }

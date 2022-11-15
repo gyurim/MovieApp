@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.data.remote.repository
+package com.gyurim.movieapp.data.repository
 
 import android.util.Log
 import androidx.paging.Pager
