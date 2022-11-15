@@ -3,9 +3,10 @@ package com.gyurim.movieapp.data.paging
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.gyurim.movieapp.data.remote.NaverMovieApi
+import com.gyurim.movieapp.data.mapper.toModel
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
-import com.gyurim.movieapp.data.remote.model.Movie
+import com.gyurim.movieapp.data.remote.model.MovieResponse
+import com.gyurim.movieapp.domain.model.Movie
 import com.gyurim.movieapp.util.Constant
 
 class MovieSearchPagingSource(
@@ -15,12 +16,15 @@ class MovieSearchPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
         val page = params.key ?: Constant.DEFAULT_PAGE_KEY
-        Log.d("load()", "")
+
         return try {
             val response = movieDataSource.searchMovieList(query)
+            val movieList = response.items.map { movie ->
+                movie.toModel()
+            }
 
             LoadResult.Page(
-                data = response.items,
+                data = movieList,
                 prevKey = if (page == Constant.DEFAULT_PAGE_KEY) null else page - 1,
                 nextKey = page + 1
             )

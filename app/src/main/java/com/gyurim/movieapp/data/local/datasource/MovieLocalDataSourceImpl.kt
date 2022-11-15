@@ -1,7 +1,7 @@
 package com.gyurim.movieapp.data.local.datasource
 
 import com.gyurim.movieapp.data.local.dao.MovieDao
-import com.gyurim.movieapp.domain.model.MovieEntity
+import com.gyurim.movieapp.data.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

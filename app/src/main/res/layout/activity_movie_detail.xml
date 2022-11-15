@@ -6,7 +6,7 @@
     <data>
         <variable
             name="movie"
-            type="com.gyurim.movieapp.data.remote.model.Movie" />
+            type="com.gyurim.movieapp.domain.model.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

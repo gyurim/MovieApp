@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.gyurim.movieapp.domain.model.MovieEntity
+import com.gyurim.movieapp.data.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,6 +18,6 @@ interface MovieDao {
     @Query("DELETE FROM MovieEntity WHERE title = :title")
     fun deleteMovie(title: String)
 
-    @Query("SELECT EXISTS(SELECT * FROM MOVIEENTITY title = :title)")
+    @Query("SELECT EXISTS(SELECT * FROM MovieEntity WHERE title = :title)")
     fun isSavedMovie(title: String): Boolean
 }

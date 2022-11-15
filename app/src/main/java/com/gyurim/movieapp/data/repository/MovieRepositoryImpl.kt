@@ -5,10 +5,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.gyurim.movieapp.data.paging.MovieSearchPagingSource
-import com.gyurim.movieapp.data.remote.NaverMovieApi
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
 import com.gyurim.movieapp.domain.repository.MovieRepository
-import com.gyurim.movieapp.data.remote.model.Movie
+import com.gyurim.movieapp.domain.model.Movie
 import com.gyurim.movieapp.util.Constant
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

@@ -7,8 +7,8 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.gyurim.movieapp.R
-import com.gyurim.movieapp.data.remote.model.Movie
 import com.gyurim.movieapp.databinding.ActivityMovieDetailBinding
+import com.gyurim.movieapp.domain.model.Movie
 
 class MovieDetailActivity: AppCompatActivity() {
     private var movie : Movie = Movie("", "", "", "", "", 0.0)

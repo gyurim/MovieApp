@@ -1,6 +1,6 @@
 package com.gyurim.movieapp.data.remote
 
-import com.gyurim.movieapp.data.remote.model.ResultSearchMovieList
+import com.gyurim.movieapp.data.remote.model.MovieListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -9,5 +9,5 @@ interface NaverMovieApi {
     suspend fun searchMovieList(
         @Query("query") query: String,
         @Query("display") display: Int
-    ): ResultSearchMovieList
+    ): MovieListResponse
 }

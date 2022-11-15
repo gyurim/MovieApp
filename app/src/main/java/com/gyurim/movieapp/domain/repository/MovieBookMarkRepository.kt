@@ -1,6 +1,6 @@
 package com.gyurim.movieapp.domain.repository
 
-import com.gyurim.movieapp.domain.model.MovieEntity
+import com.gyurim.movieapp.data.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 
 interface MovieBookMarkRepository {

@@ -3,7 +3,7 @@ package com.gyurim.movieapp.data.local.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.gyurim.movieapp.data.local.dao.MovieDao
-import com.gyurim.movieapp.domain.model.MovieEntity
+import com.gyurim.movieapp.data.local.entity.MovieEntity
 
 @Database(
     entities = [MovieEntity::class],

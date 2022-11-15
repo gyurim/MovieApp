@@ -1,7 +1,7 @@
 package com.gyurim.movieapp.domain.repository
 
 import androidx.paging.PagingData
-import com.gyurim.movieapp.data.remote.model.Movie
+import com.gyurim.movieapp.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {

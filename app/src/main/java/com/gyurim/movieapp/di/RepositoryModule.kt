@@ -2,6 +2,7 @@ package com.gyurim.movieapp.di
 
 import com.gyurim.movieapp.data.repository.MovieBookMarkRepositoryImpl
 import com.gyurim.movieapp.data.repository.MovieRepositoryImpl
+import com.gyurim.movieapp.domain.repository.MovieBookMarkRepository
 import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
@@ -22,5 +23,5 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindsMovieBookMarkRepository(
         movieBookMarkRepositoryImpl: MovieBookMarkRepositoryImpl
-    ): MovieRepository
+    ): MovieBookMarkRepository
 }

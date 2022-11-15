@@ -1,7 +1,7 @@
 package com.gyurim.movieapp.data.remote.datasource
 
-import com.gyurim.movieapp.data.remote.model.ResultSearchMovieList
+import com.gyurim.movieapp.data.remote.model.MovieListResponse
 
 interface MovieDataSource {
-    suspend fun searchMovieList(query: String): ResultSearchMovieList
+    suspend fun searchMovieList(query: String): MovieListResponse
 }

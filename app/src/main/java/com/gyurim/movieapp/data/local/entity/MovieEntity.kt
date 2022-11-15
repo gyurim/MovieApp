@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.domain.model
+package com.gyurim.movieapp.data.local.entity
 
 import android.os.Parcelable
 import androidx.room.Entity
