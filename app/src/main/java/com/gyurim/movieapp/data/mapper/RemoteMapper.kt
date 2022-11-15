@@ -9,6 +9,7 @@ fun MovieResponse.toModel(): Movie {
         link = this.link,
         image = this.image,
         director = this.director,
+        actor = this.actor,
         userRating = this.userRating,
         isSaved = false
     )

@@ -20,6 +20,7 @@ class MovieSearchPagingSource(
         return try {
             val response = movieDataSource.searchMovieList(query)
             val movieList = response.items.map { movie ->
+                Log.d("movie", movie.toString())
                 movie.toModel()
             }
 
