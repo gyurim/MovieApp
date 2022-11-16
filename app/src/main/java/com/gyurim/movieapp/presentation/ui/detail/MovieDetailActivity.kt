@@ -24,6 +24,9 @@ class MovieDetailActivity: AppCompatActivity() {
             binding.movie = movie
         }
 
+        val str = if (movie.isSaved) "true" else "false"
+        Log.d("${movie.title} isSaved", str)
+
         initToolbar()
         loadWebView()
     }

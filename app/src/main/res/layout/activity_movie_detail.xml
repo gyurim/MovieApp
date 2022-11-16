@@ -81,7 +81,9 @@
                 android:layout_height="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/movie_detail_director"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{movie.isSaved ? @drawable/ic_bookmark_active : @drawable/ic_bookmark_inactive}"
+                android:background="@android:color/transparent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
