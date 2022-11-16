@@ -25,7 +25,7 @@ class MovieLocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun saveMovie(movie: MovieEntity) {
-        saveMovie(movie)
+        movieDao.saveMovie(movie)
     }
 
     override fun getMovieDataPagingSource(): PagingSource<Int, MovieEntity> {

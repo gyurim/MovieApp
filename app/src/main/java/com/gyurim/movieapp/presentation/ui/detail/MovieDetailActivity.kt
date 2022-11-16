@@ -33,11 +33,13 @@ class MovieDetailActivity: AppCompatActivity() {
 
         movieDetailViewModel.setMovieFlow(movie)
         binding.movieDetailBookmarkButton.setOnClickListener {
+            Log.d("click", movie.title)
             movieDetailViewModel.changeBookmarkMovieState()
         }
 
         lifecycleScope.launchWhenStarted {
             movieDetailViewModel.movieFlow.collect {
+                Log.d("collect", it.title)
                 binding.movie = it
             }
         }

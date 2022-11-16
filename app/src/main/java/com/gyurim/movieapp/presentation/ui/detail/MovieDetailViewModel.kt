@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.gyurim.movieapp.domain.model.Movie
 import com.gyurim.movieapp.domain.repository.MovieBookMarkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -32,7 +33,7 @@ class MovieDetailViewModel @Inject constructor(
     }
 
     private fun removeBookmarkMovie() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             bookMarkRepository.deleteMovie(title = _movieFlow.value.title)
             _movieFlow.update {
                 _movieFlow.value.copy(isSaved = false)
@@ -41,7 +42,7 @@ class MovieDetailViewModel @Inject constructor(
     }
 
     private fun setBookmarkMovie() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             bookMarkRepository.saveMovie(_movieFlow.value)
             _movieFlow.update {
                 _movieFlow.value.copy(isSaved = true)
