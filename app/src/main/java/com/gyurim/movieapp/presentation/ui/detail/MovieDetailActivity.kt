@@ -1,18 +1,22 @@
 package com.gyurim.movieapp.presentation.ui.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.webkit.WebViewClient
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import com.gyurim.movieapp.R
-import com.gyurim.movieapp.data.remote.model.Movie
 import com.gyurim.movieapp.databinding.ActivityMovieDetailBinding
+import com.gyurim.movieapp.domain.model.Movie
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MovieDetailActivity: AppCompatActivity() {
     private var movie : Movie = Movie("", "", "", "", "", 0.0)
     private lateinit var binding: ActivityMovieDetailBinding
+    private val movieDetailViewModel: MovieDetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +27,21 @@ class MovieDetailActivity: AppCompatActivity() {
             movie = this
             binding.movie = movie
         }
-
         initToolbar()
         loadWebView()
+
+        movieDetailViewModel.setMovieFlow(movie)
+        movieDetailViewModel.checkBookmarkMovieState(movie)
+
+        binding.movieDetailBookmarkButton.setOnClickListener {
+            movieDetailViewModel.changeBookmarkMovieState()
+        }
+
+        lifecycleScope.launchWhenStarted {
+            movieDetailViewModel.movieFlow.collect {
+                binding.movie = it
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -49,7 +65,6 @@ class MovieDetailActivity: AppCompatActivity() {
         binding.movieWebView.apply {
             webViewClient = WebViewClient()
             loadUrl(movie.link)
-            Log.d("link", movie.link)
         }
     }
 
@@ -64,5 +79,4 @@ class MovieDetailActivity: AppCompatActivity() {
     companion object {
         const val MOVIE_DETAIL_DATA = "MOVIE_DETAIL"
     }
-
 }

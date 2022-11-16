@@ -28,14 +28,14 @@ object NetworkModule {
             .build()
     }
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideNaverRetrofit(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory

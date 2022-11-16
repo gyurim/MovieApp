@@ -56,10 +56,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     implementation "androidx.activity:activity-ktx:1.5.1"
+    implementation 'androidx.fragment:fragment-ktx:1.5.4'
     // Room
     implementation "androidx.room:room-runtime:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
+    implementation("androidx.room:room-paging:2.4.3")
     // Paging
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
     implementation("androidx.paging:paging-runtime:3.1.1")
@@ -71,4 +73,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     // Coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    // Material
+    implementation 'com.google.android.material:material:1.7.0'
 }

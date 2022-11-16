@@ -5,7 +5,7 @@
     <data>
         <variable
             name="movie"
-            type="com.gyurim.movieapp.data.remote.model.Movie" />
+            type="com.gyurim.movieapp.domain.model.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,9 +62,9 @@
             android:ellipsize="end"
             android:text="@{`출연: ` + movie.actor}"
             android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/movie_user_rating"
             app:layout_constraintStart_toEndOf="@id/movie_poster_image"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movie_director" />
 
         <TextView
@@ -85,7 +85,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/movie_title"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@{movie.isSaved ? @drawable/ic_bookmark_active : @drawable/ic_bookmark_inactive}"
+            android:background="@android:color/transparent"/>
 
         <View
             android:layout_width="match_parent"
