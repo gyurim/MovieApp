@@ -7,20 +7,22 @@ import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class RepositoryModule {
     @Binds
-    @Singleton
+    @ViewModelScoped
     abstract fun bindsMovieRepository(
         movieRepository: MovieRepositoryImpl
     ): MovieRepository
 
     @Binds
-    @Singleton
+    @ViewModelScoped
     abstract fun bindsMovieBookMarkRepository(
         movieBookMarkRepositoryImpl: MovieBookMarkRepositoryImpl
     ): MovieBookMarkRepository

@@ -1,10 +1,11 @@
 package com.gyurim.movieapp.data.local.datasource
 
+import androidx.paging.PagingSource
 import com.gyurim.movieapp.data.local.entity.MovieEntity
-import kotlinx.coroutines.flow.Flow
 
 interface MovieLocalDataSource {
-    suspend fun getMoviesFlow(): Flow<List<MovieEntity>>
+//    suspend fun getMoviesFlow(): Flow<List<MovieEntity>>
+    fun getMovieDataPagingSource(): PagingSource<Int, MovieEntity>
 
     suspend fun deleteMovie(title: String)
 
