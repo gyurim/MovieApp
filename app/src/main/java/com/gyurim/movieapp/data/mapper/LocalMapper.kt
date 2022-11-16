@@ -1,6 +1,5 @@
 package com.gyurim.movieapp.data.mapper
 
-
 import com.gyurim.movieapp.data.local.entity.MovieEntity
 import com.gyurim.movieapp.domain.model.Movie
 

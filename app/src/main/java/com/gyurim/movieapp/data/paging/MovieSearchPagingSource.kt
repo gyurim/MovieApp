@@ -1,11 +1,9 @@
 package com.gyurim.movieapp.data.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.gyurim.movieapp.data.mapper.toModel
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
-import com.gyurim.movieapp.data.remote.model.MovieResponse
 import com.gyurim.movieapp.domain.model.Movie
 import com.gyurim.movieapp.util.Constant
 
@@ -20,7 +18,6 @@ class MovieSearchPagingSource(
         return try {
             val response = movieDataSource.searchMovieList(query)
             val movieList = response.items.map { movie ->
-                Log.d("movie", movie.toString())
                 movie.toModel()
             }
 

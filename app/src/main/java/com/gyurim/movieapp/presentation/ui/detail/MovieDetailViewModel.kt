@@ -27,6 +27,16 @@ class MovieDetailViewModel @Inject constructor(
         }
     }
 
+    fun checkBookmarkMovieState(movie: Movie) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (bookMarkRepository.isSavedMovie(_movieFlow.value.title)) {
+                _movieFlow.update {
+                    movie.copy(isSaved = true)
+                }
+            }
+        }
+    }
+
     fun changeBookmarkMovieState() {
         if (_movieFlow.value.isSaved) removeBookmarkMovie()
         else setBookmarkMovie()

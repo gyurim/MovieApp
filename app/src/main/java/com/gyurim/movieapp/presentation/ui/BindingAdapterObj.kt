@@ -31,6 +31,7 @@ object BindingAdapterObj {
                 query?.let {
                     searchMovie(it)
                 }
+                view.clearFocus()
                 return false
             }
         })

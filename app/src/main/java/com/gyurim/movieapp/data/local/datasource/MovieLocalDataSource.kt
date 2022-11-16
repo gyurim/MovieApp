@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import com.gyurim.movieapp.data.local.entity.MovieEntity
 
 interface MovieLocalDataSource {
-//    suspend fun getMoviesFlow(): Flow<List<MovieEntity>>
     fun getMovieDataPagingSource(): PagingSource<Int, MovieEntity>
 
     suspend fun deleteMovie(title: String)

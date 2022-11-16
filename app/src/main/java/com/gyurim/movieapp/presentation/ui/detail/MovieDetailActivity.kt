@@ -1,7 +1,6 @@
 package com.gyurim.movieapp.presentation.ui.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
@@ -32,14 +31,14 @@ class MovieDetailActivity: AppCompatActivity() {
         loadWebView()
 
         movieDetailViewModel.setMovieFlow(movie)
+        movieDetailViewModel.checkBookmarkMovieState(movie)
+
         binding.movieDetailBookmarkButton.setOnClickListener {
-            Log.d("click", movie.title)
             movieDetailViewModel.changeBookmarkMovieState()
         }
 
         lifecycleScope.launchWhenStarted {
             movieDetailViewModel.movieFlow.collect {
-                Log.d("collect", it.title)
                 binding.movie = it
             }
         }
@@ -80,5 +79,4 @@ class MovieDetailActivity: AppCompatActivity() {
     companion object {
         const val MOVIE_DETAIL_DATA = "MOVIE_DETAIL"
     }
-
 }

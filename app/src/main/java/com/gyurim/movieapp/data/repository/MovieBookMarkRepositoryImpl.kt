@@ -13,7 +13,6 @@ import com.gyurim.movieapp.util.Constant
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class MovieBookMarkRepositoryImpl @Inject constructor(
     private val movieLocalDataSource: MovieLocalDataSource
