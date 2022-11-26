@@ -53,10 +53,10 @@ class MovieDetailViewModel @Inject constructor(
 
     private fun setBookmarkMovie() {
         viewModelScope.launch(Dispatchers.IO) {
-            bookMarkRepository.saveMovie(_movieFlow.value)
             _movieFlow.update {
                 _movieFlow.value.copy(isSaved = true)
             }
+            bookMarkRepository.saveMovie(_movieFlow.value)
         }
     }
 }
