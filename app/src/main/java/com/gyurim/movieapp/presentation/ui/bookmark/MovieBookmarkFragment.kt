@@ -30,7 +30,7 @@ class MovieBookmarkFragment : Fragment() {
                 .putExtra(MovieDetailActivity.MOVIE_DETAIL_DATA, it))
         },
         itemBookmarkClick = {
-//            viewModel.changeBookmarkMovieState(it)
+            movieBookmarkViewModel.changeBookMarkState(it)
         }
     )
 
@@ -50,11 +50,7 @@ class MovieBookmarkFragment : Fragment() {
         initToolbar()
 
         lifecycleScope.launchWhenStarted {
-            Log.d("submitData()", "")
             movieBookmarkViewModel.movieListFlow.collectLatest { movieList ->
-                movieList.map {
-                    Log.d("${it.title} ${it.isSaved}", "")
-                }
                 movieBookmarkPagingAdapter.submitData(movieList)
             }
         }

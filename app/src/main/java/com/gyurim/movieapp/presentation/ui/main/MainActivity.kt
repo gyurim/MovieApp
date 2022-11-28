@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             .putExtra(MovieDetailActivity.MOVIE_DETAIL_DATA, it))
         },
         itemBookmarkClick = {
+            viewModel.changeBookMarkState(it)
         }
     )
 
