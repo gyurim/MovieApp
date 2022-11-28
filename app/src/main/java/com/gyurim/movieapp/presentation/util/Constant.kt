@@ -1,4 +1,4 @@
-package com.gyurim.movieapp.util
+package com.gyurim.movieapp.presentation.util
 
 object Constant {
     const val DEFAULT_PAGE_KEY = 1

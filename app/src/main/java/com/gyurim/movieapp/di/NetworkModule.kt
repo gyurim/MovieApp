@@ -1,7 +1,7 @@
 package com.gyurim.movieapp.di
 
 import com.gyurim.movieapp.data.remote.NaverMovieApi
-import com.gyurim.movieapp.util.UserInfo
+import com.gyurim.movieapp.presentation.ui.util.UserInfo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

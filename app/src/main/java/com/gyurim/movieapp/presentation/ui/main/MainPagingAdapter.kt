@@ -38,6 +38,7 @@ class MainPagingAdapter(
                     // true -> item이 bookmark에 추가된 경우
                     // false -> item이 bookmark에서 제거된 경우
                     it.isSelected = itemBookMarkClick.invoke(item)
+                    item.isSaved = it.isSelected
                     Log.d("${item.title}", "${it.isSelected}")
                 }
                 executePendingBindings()

@@ -9,7 +9,7 @@ import com.gyurim.movieapp.data.mapper.toEntity
 import com.gyurim.movieapp.data.mapper.toModel
 import com.gyurim.movieapp.domain.model.Movie
 import com.gyurim.movieapp.domain.repository.MovieBookMarkRepository
-import com.gyurim.movieapp.util.Constant
+import com.gyurim.movieapp.presentation.ui.util.Constant
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
