@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import com.gyurim.movieapp.data.mapper.toModel
 import com.gyurim.movieapp.data.remote.datasource.MovieDataSource
 import com.gyurim.movieapp.domain.model.Movie
-import com.gyurim.movieapp.presentation.ui.util.Constant
+import com.gyurim.movieapp.util.Constant
 
 class MovieSearchPagingSource(
     private val movieDataSource: MovieDataSource,
