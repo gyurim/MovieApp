@@ -15,9 +15,9 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveMovie(movieEntity: MovieEntity)
 
-    @Query("DELETE FROM MovieEntity WHERE title = :title")
-    fun deleteMovie(title: String)
+    @Query("DELETE FROM MovieEntity WHERE link = :link")
+    fun deleteMovie(link: String)
 
-    @Query("SELECT EXISTS(SELECT * FROM MovieEntity WHERE title = :title)")
-    fun isSavedMovie(title: String): Boolean
+    @Query("SELECT EXISTS(SELECT * FROM MovieEntity WHERE link = :link)")
+    fun isSavedMovie(link: String): Boolean
 }

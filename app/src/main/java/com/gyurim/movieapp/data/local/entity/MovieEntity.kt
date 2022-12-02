@@ -8,8 +8,8 @@ import kotlinx.parcelize.Parcelize
 @Entity
 @Parcelize
 data class MovieEntity(
-    @PrimaryKey
     val title : String = "",
+    @PrimaryKey
     val link: String = "",
     val image: String = "",
     val director: String = "",

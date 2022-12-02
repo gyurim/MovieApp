@@ -33,12 +33,12 @@ class MovieBookMarkRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteMovie(title: String) {
-        movieLocalDataSource.deleteMovie(title)
+    override suspend fun deleteMovie(link: String) {
+        movieLocalDataSource.deleteMovie(link)
     }
 
-    override suspend fun isSavedMovie(title: String): Boolean {
-        return movieLocalDataSource.isSavedMovie(title)
+    override suspend fun isSavedMovie(link: String): Boolean {
+        return movieLocalDataSource.isSavedMovie(link)
     }
 
     override suspend fun saveMovie(movie: Movie) {

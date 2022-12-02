@@ -30,15 +30,15 @@ class MainViewModel @Inject constructor(
         // TODO: withContext를 사용해서 순차 적용
         viewModelScope.launch {
             movieRepository.searchMovieList(query).cachedIn(viewModelScope).collectLatest {
-                // PagingData.map은 lazy transformation
-                // .submitData(pagingData)를 호출할 때 collection이 진행되는 lazy transformation
-                // 그래서 untransformated PagingData를 submit한다면, .map은 절대 작동되지 않을 것
+                /* PagingData.map은 lazy transformation
+                .submitData(pagingData)를 호출할 때 collection이 진행되는 lazy transformation
+                그래서 untransformated PagingData를 submit한다면, .map은 절대 작동되지 않을 것 */
 
                 _movieList.value = it
-
+                // emit을 한 뒤, 각 영화에 대해 isSavedMovie 함수 호출
                 it.map { movie ->
-                    Log.d("${movie.isBookmarked}", "${movie.title}")
-                    movie.isBookmarked = bookMarkRepository.isSavedMovie(movie.title)
+                    Log.d("${movie.isBookmarked}", "${movie.link} ${movie.title}")
+                    movie.isBookmarked = bookMarkRepository.isSavedMovie(movie.link)
                     it
                 }
             }
@@ -47,7 +47,7 @@ class MainViewModel @Inject constructor(
 
     fun changeBookMarkState(movie: Movie): Boolean {
         return if (movie.isBookmarked) {
-            removeBookmarkMovie(movie.title)
+            removeBookmarkMovie(movie.link)
             false
         } else {
             setBookmarkMovie(movie)
@@ -55,9 +55,9 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun removeBookmarkMovie(title : String) {
+    private fun removeBookmarkMovie(link : String) {
         viewModelScope.launch(Dispatchers.IO) {
-            bookMarkRepository.deleteMovie(title = title)
+            bookMarkRepository.deleteMovie(link = link)
         }
     }
 

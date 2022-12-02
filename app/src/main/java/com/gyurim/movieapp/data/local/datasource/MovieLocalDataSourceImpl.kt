@@ -10,12 +10,12 @@ class MovieLocalDataSourceImpl @Inject constructor(
 ): MovieLocalDataSource{
     private val movieDao = movieDatabase.movieDao()
 
-    override suspend fun deleteMovie(title: String) {
-        movieDao.deleteMovie(title)
+    override suspend fun deleteMovie(link: String) {
+        movieDao.deleteMovie(link)
     }
 
-    override suspend fun isSavedMovie(title: String): Boolean {
-        return movieDao.isSavedMovie(title)
+    override suspend fun isSavedMovie(link: String): Boolean {
+        return movieDao.isSavedMovie(link)
     }
 
     override suspend fun saveMovie(movie: MovieEntity) {

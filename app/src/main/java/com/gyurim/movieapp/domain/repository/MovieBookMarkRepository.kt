@@ -9,7 +9,7 @@ interface MovieBookMarkRepository {
 
     suspend fun saveMovie(movie: Movie)
 
-    suspend fun deleteMovie(title: String)
+    suspend fun deleteMovie(link: String)
 
-    suspend fun isSavedMovie(title: String): Boolean
+    suspend fun isSavedMovie(link: String): Boolean
 }
