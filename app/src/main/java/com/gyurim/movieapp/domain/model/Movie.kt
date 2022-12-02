@@ -11,5 +11,5 @@ data class Movie (
     val director: String = "",
     val actor: String = "",
     val userRating: Double = 0.0,
-    val isSaved: Boolean = false
+    var isBookmarked: Boolean = false
 ): Parcelable

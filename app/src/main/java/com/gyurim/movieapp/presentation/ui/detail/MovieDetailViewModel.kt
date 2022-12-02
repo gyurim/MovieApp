@@ -29,34 +29,34 @@ class MovieDetailViewModel @Inject constructor(
 
     fun checkBookmarkMovieState(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            if (bookMarkRepository.isSavedMovie(_movieFlow.value.title)) {
+            if (bookMarkRepository.isSavedMovie(_movieFlow.value.link)) {
                 _movieFlow.update {
-                    movie.copy(isSaved = true)
+                    movie.copy(isBookmarked = true)
                 }
             }
         }
     }
 
     fun changeBookmarkMovieState() {
-        if (_movieFlow.value.isSaved) removeBookmarkMovie()
+        if (_movieFlow.value.isBookmarked) removeBookmarkMovie()
         else setBookmarkMovie()
     }
 
     private fun removeBookmarkMovie() {
         viewModelScope.launch(Dispatchers.IO) {
-            bookMarkRepository.deleteMovie(title = _movieFlow.value.title)
+            bookMarkRepository.deleteMovie(link = _movieFlow.value.link)
             _movieFlow.update {
-                _movieFlow.value.copy(isSaved = false)
+                _movieFlow.value.copy(isBookmarked = false)
             }
         }
     }
 
     private fun setBookmarkMovie() {
         viewModelScope.launch(Dispatchers.IO) {
-            bookMarkRepository.saveMovie(_movieFlow.value)
             _movieFlow.update {
-                _movieFlow.value.copy(isSaved = true)
+                _movieFlow.value.copy(isBookmarked = true)
             }
+            bookMarkRepository.saveMovie(_movieFlow.value)
         }
     }
 }

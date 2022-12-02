@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding // lazy와 lateinit 차이
 
     private val pagingAdapter = MainPagingAdapter(
         itemClick = {
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             .putExtra(MovieDetailActivity.MOVIE_DETAIL_DATA, it))
         },
         itemBookmarkClick = {
+            viewModel.changeBookMarkState(it)
         }
     )
 

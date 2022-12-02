@@ -10,7 +10,7 @@ fun MovieEntity.toModel() = Movie(
     director = director,
     actor = actor,
     userRating = userRating,
-    isSaved = isSaved
+    isBookmarked = isSaved
 )
 
 fun Movie.toEntity() = MovieEntity(
@@ -20,5 +20,5 @@ fun Movie.toEntity() = MovieEntity(
     director = director,
     actor = actor,
     userRating = userRating,
-    isSaved = isSaved
+    isSaved = isBookmarked
 )
