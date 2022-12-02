@@ -94,7 +94,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@android:color/transparent"
-            android:src="@{movie.isSaved ? @drawable/ic_bookmark_active : @drawable/ic_bookmark_inactive}"/>
+            android:src="@{movie.bookmarked ? @drawable/ic_bookmark_active : @drawable/ic_bookmark_inactive}"/>
 
         <View
             android:layout_width="match_parent"

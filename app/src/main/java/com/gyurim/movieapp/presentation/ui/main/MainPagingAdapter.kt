@@ -38,8 +38,8 @@ class MainPagingAdapter(
                     // true -> item이 bookmark에 추가된 경우
                     // false -> item이 bookmark에서 제거된 경우
                     it.isSelected = itemBookMarkClick.invoke(item)
-                    item.isSaved = it.isSelected
-                    Log.d("${item.title}", "${it.isSelected}")
+                    item.isBookmarked = it.isSelected
+                    Log.d("${item.link}", "${item.title} ${it.isSelected}")
                 }
                 executePendingBindings()
             }
@@ -49,7 +49,7 @@ class MainPagingAdapter(
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<Movie>() {
             override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-                return oldItem.title == newItem.title
+                return oldItem.link == newItem.link
             }
 
             override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {

@@ -11,15 +11,9 @@ import com.gyurim.movieapp.domain.repository.MovieBookMarkRepository
 import com.gyurim.movieapp.domain.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -33,20 +27,26 @@ class MainViewModel @Inject constructor(
         get() = _movieList
 
     fun searchMovieList(query : String) {
+        // TODO: withContext를 사용해서 순차 적용
         viewModelScope.launch {
-            movieRepository.searchMovieList(query).cachedIn(viewModelScope).collect {
+            movieRepository.searchMovieList(query).cachedIn(viewModelScope).collectLatest {
+                // PagingData.map은 lazy transformation
+                // .submitData(pagingData)를 호출할 때 collection이 진행되는 lazy transformation
+                // 그래서 untransformated PagingData를 submit한다면, .map은 절대 작동되지 않을 것
+
+                _movieList.value = it
+
                 it.map { movie ->
-                    Log.d("${movie.isSaved}", "${movie.title}")
-                    movie.isSaved = bookMarkRepository.isSavedMovie(movie.title)
+                    Log.d("${movie.isBookmarked}", "${movie.title}")
+                    movie.isBookmarked = bookMarkRepository.isSavedMovie(movie.title)
                     it
                 }
-                _movieList.value = it
             }
         }
     }
 
     fun changeBookMarkState(movie: Movie): Boolean {
-        return if (movie.isSaved) {
+        return if (movie.isBookmarked) {
             removeBookmarkMovie(movie.title)
             false
         } else {
@@ -63,7 +63,7 @@ class MainViewModel @Inject constructor(
 
     private fun setBookmarkMovie(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            movie.isSaved = true
+            movie.isBookmarked = true
             bookMarkRepository.saveMovie(movie)
         }
     }

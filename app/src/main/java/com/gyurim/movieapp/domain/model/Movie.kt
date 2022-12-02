@@ -6,10 +6,10 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Movie (
     val title : String = "",
-    val link: String = "",
+    val link: String = "", // unique key
     val image: String = "",
     val director: String = "",
     val actor: String = "",
     val userRating: Double = 0.0,
-    var isSaved: Boolean = false
+    var isBookmarked: Boolean = false
 ): Parcelable

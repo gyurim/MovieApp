@@ -11,6 +11,6 @@ fun MovieResponse.toModel(): Movie {
         director = this.director,
         actor = this.actor,
         userRating = this.userRating,
-        isSaved = false
+        isBookmarked = false
     )
 }

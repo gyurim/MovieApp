@@ -31,7 +31,7 @@ class MovieBookmarkViewModel @Inject constructor(
         viewModelScope.launch {
             bookMarkRepository.getMoviesFlow().cachedIn(viewModelScope).collectLatest {
                 it.map { movie ->
-                    movie.isSaved = bookMarkRepository.isSavedMovie(movie.title)
+                    movie.isBookmarked = bookMarkRepository.isSavedMovie(movie.title)
                 }
                 _movieListFlow.value = it
             }
@@ -39,7 +39,7 @@ class MovieBookmarkViewModel @Inject constructor(
     }
 
     fun changeBookMarkState(movie: Movie): Boolean {
-        return if (movie.isSaved) {
+        return if (movie.isBookmarked) {
             removeBookmarkMovie(movie.title)
             false
         } else {
@@ -56,7 +56,7 @@ class MovieBookmarkViewModel @Inject constructor(
 
     private fun setBookmarkMovie(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            movie.isSaved = true
+            movie.isBookmarked = true
             bookMarkRepository.saveMovie(movie)
         }
     }
